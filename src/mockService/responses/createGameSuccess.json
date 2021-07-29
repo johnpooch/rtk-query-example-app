@@ -1,0 +1,12 @@
+{
+	"name": "Game",
+	"description": "Description",
+	"private": false,
+  "variant": "Classical",
+  "finished": false,
+  "id": "",
+  "started": false,
+  "createdAt": "",
+  "startedAt": "",
+  "finishedAt": ""
+}
