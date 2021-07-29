@@ -47,7 +47,9 @@ const CreateGameForm = () => {
         {isSuccess && <div>Game created successfully!</div>}
         {data && (
           <>
-            <div><strong>Your new game:</strong></div>
+            <div>
+              <strong>Your new game:</strong>
+            </div>
             <div>ID: {data.id}</div>
             <div>Name: {data.name}</div>
             <div>Description: {data.description}</div>

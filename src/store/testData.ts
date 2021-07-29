@@ -25,14 +25,14 @@ export const initialState: RootState = {
 };
 
 export const newGame: NewGame = {
-	name: "Game",
-	description: "Description",
-	private: false,
-  variant: "Classical"
+  name: "Game",
+  description: "Description",
+  private: false,
+  variant: "Classical",
 };
 
 export const game: Game = {
-	...newGame,
+  ...newGame,
   finished: false,
   id: "",
   started: false,
@@ -47,4 +47,3 @@ export const variant: Variant = {
   description: "Description",
   orderTypes: [],
 };
-

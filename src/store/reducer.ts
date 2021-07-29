@@ -4,6 +4,6 @@ import auth from "./auth";
 import { diplomacyService } from "./service";
 
 export default combineReducers({
-	[diplomacyService.reducerPath]: diplomacyService.reducer,
-	auth,
+  [diplomacyService.reducerPath]: diplomacyService.reducer,
+  auth,
 });

@@ -20,6 +20,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "lint": "eslint src/**/*.{js,ts,tsx}",
+    "lint-fix": "eslint src/**/*.{js,ts,tsx} --fix",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -41,8 +43,15 @@
   },
   "devDependencies": {
     "@testing-library/react-hooks": "^7.0.1",
+    "@typescript-eslint/eslint-plugin": "^4.28.0",
+    "@typescript-eslint/parser": "^4.28.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.24.0",
     "jest-fetch-mock": "^3.0.3",
-    "msw": "^0.33.0"
+    "msw": "^0.33.0",
+    "prettier": "^2.3.2"
   },
   "msw": {
     "workerDirectory": "public"
