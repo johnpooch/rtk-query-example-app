@@ -15,14 +15,14 @@ const initialData: FormData = {
   variant: "",
 };
 
-const CreateGameForm = () => {
+const CreateGameForm = (): React.ReactElement => {
   const [formData, setFormData] = useState<FormData>(initialData);
   const [createGame, { isLoading, isError, isSuccess, data }] =
     useCreateGameMutation();
 
-  const handleSubmit = (e: React.SyntheticEvent) => {
+  const handleSubmit = (e: React.SyntheticEvent): void => {
     e.preventDefault();
-    createGame(formData);
+    void createGame(formData);
   };
 
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {

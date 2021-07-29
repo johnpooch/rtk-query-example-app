@@ -21,7 +21,6 @@ export const initialState: RootState = {
       keepUnusedDataFor: 60,
     },
   },
-  variants: { entities: [], loaded: false },
 };
 
 export const newGame: NewGame = {

@@ -5,7 +5,7 @@ import { store } from "./store";
 import { Provider } from "react-redux";
 import worker from "./mockService/browser";
 
-worker.start();
+void worker.start();
 
 ReactDOM.render(
   <React.StrictMode>

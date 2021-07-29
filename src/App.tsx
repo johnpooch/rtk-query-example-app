@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import VariantsList from "./components/VariantsList";
 import CreateGameForm from "./components/CreateGameForm";
 
-const App = () => {
+const App = (): React.ReactElement => {
   const [variantsListOpen, setVariantsListOpen] = useState(false);
   const [createGameFormOpen, setCreateGameFormOpen] = useState(false);
   return (

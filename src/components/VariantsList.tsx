@@ -1,7 +1,7 @@
 import React from "react";
 import { useListVariantsQuery } from "../hooks/service";
 
-const VariantsList = () => {
+const VariantsList = (): React.ReactElement => {
   const { isLoading, isError, data } = useListVariantsQuery(undefined);
 
   return (
