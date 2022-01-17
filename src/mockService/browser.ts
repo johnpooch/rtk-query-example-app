@@ -1,5 +1,5 @@
 import { setupWorker } from "msw";
 
-import { handlersList } from "./handlers";
+import handlers from "./handlers";
 
-export default setupWorker(...handlersList);
+export default setupWorker(...handlers);

@@ -2,17 +2,23 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 import { selectToken } from "./selectors";
 import { RootState } from "./store";
-import { Headers, NewGame, Game, Variant } from "./types";
+import {
+  ChangePasswordRequestData,
+  Headers,
+  LoginRequestData,
+  LoginResponseData,
+  RegisterRequestData,
+  RegisterResponseData,
+} from "./types";
 
-export const serviceURL = "https://fake-url.com/";
+export const authServiceURL = "https://fake-auth-service.com/";
 
-export const diplomacyService = createApi({
-  reducerPath: "diplomacyService",
+export const authService = createApi({
+  reducerPath: "authService",
   baseQuery: fetchBaseQuery({
-    baseUrl: serviceURL,
+    baseUrl: authServiceURL,
     prepareHeaders: (headers, { getState }) => {
       const token = selectToken(getState() as RootState);
-      // If we have a token set in state, let's assume that we should be passing it.
       if (token) {
         headers.set(Headers.Authorization, `Bearer ${token}`);
       }
@@ -22,12 +28,24 @@ export const diplomacyService = createApi({
     mode: "cors",
   }),
   endpoints: (builder) => ({
-    listVariants: builder.query<Variant[], undefined>({
-      query: () => "/Variants",
-    }),
-    createGame: builder.mutation<Game, NewGame>({
+    login: builder.mutation<LoginResponseData, LoginRequestData>({
       query: (body) => ({
-        url: "/Game",
+        url: "/login",
+        method: "POST",
+        body,
+      }),
+    }),
+    register: builder.mutation<RegisterResponseData, RegisterRequestData>({
+      query: (body) => ({
+        url: "/register",
+        method: "POST",
+        body,
+      }),
+    }),
+    // eslint-disable-next-line @typescript-eslint/ban-types
+    changePassword: builder.mutation<{}, ChangePasswordRequestData>({
+      query: (body) => ({
+        url: "/change-password",
         method: "POST",
         body,
       }),

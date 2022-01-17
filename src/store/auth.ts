@@ -1,11 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { authService } from "./service";
 
 export type Auth = {
   token?: string;
-  isLoggedIn: boolean;
+  email?: string;
 };
 
-const initialState: Auth = { isLoggedIn: false };
+const initialState: Auth = {};
 
 export const authSlice = createSlice({
   name: "auth",
@@ -14,9 +15,19 @@ export const authSlice = createSlice({
     login: (state, action: PayloadAction<string>) => {
       const token = action.payload;
       localStorage.setItem("token", token);
-      state.isLoggedIn = true;
       state.token = token;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addMatcher(
+      authService.endpoints.login.matchFulfilled,
+      (state, { payload }) => {
+        return {
+          token: payload.token,
+          email: payload.email,
+        };
+      }
+    );
   },
 });
 

@@ -1,25 +1,23 @@
-import React, { useState } from "react";
-import VariantsList from "./components/VariantsList";
-import CreateGameForm from "./components/CreateGameForm";
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import FeedbackWrapper from "./components/FeedbackWrapper";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import ChangePassword from "./pages/ChangePassword";
 
 const App = (): React.ReactElement => {
-  const [variantsListOpen, setVariantsListOpen] = useState(false);
-  const [createGameFormOpen, setCreateGameFormOpen] = useState(false);
   return (
-    <div className="App">
-      <div>
-        <button type="button" onClick={() => setVariantsListOpen(true)}>
-          Load variants
-        </button>
-        {variantsListOpen && <VariantsList />}
-      </div>
-      <div>
-        <button type="button" onClick={() => setCreateGameFormOpen(true)}>
-          Create a game
-        </button>
-        {createGameFormOpen && <CreateGameForm />}
-      </div>
-    </div>
+    <FeedbackWrapper>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+          <Route path="change-password" element={<ChangePassword />} />
+        </Routes>
+      </BrowserRouter>
+    </FeedbackWrapper>
   );
 };
 

@@ -1,9 +1,11 @@
 import { combineReducers } from "redux";
 
 import auth from "./auth";
-import { diplomacyService } from "./service";
+import feedback from "./feedback";
+import { authService } from "./service";
 
 export default combineReducers({
-  [diplomacyService.reducerPath]: diplomacyService.reducer,
+  [authService.reducerPath]: authService.reducer,
   auth,
+  feedback,
 });
