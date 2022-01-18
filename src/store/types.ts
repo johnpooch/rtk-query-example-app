@@ -1,57 +1,30 @@
-export interface LoginRequestData {
-  email: string;
-  password: string;
-}
+// POST data required when creating a new game
+export type NewGame = {
+  name: string;
+  description: string;
+  private: boolean;
+  variant: string;
+};
 
-export interface LoginResponseData {
-  email: string;
-  token: string;
-}
+// An existing game
+export type Game = NewGame & {
+  finished: boolean;
+  id: string;
+  started: boolean;
+  createdAt: string;
+  startedAt: string;
+  finishedAt: string;
+};
 
-export interface RegisterRequestData {
-  email: string;
-  password: string;
-}
+export type Variant = {
+  name: string;
+  createdBy: string;
+  description: string;
+  orderTypes: string[];
+};
 
-export interface RegisterResponseData {
-  email: string;
-  token: string;
-}
-
-export interface ChangePasswordRequestData {
-  email: string;
-  oldPassword: string;
-  password: string;
-}
-
+// Request headers
 export enum Headers {
   Authorization = "authorization",
   Accept = "Accept",
-}
-
-export enum TelemetryEventName {
-  PageLoad = "page_load",
-  FormInteraction = "form_interaction",
-  ApiStart = "api_start",
-  ApiStop = "api_stop",
-}
-
-export enum LogLevel {
-  Error = "error",
-  Warning = "warning",
-  Info = "info",
-  Success = "success",
-}
-
-export enum Severity {
-  Error = "error",
-  Warning = "warning",
-  Info = "info",
-  Success = "success",
-}
-
-export interface Feedback {
-  id: number;
-  severity: Severity;
-  message: string;
 }

@@ -2,11 +2,11 @@ import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 
 import reducer from "./reducer";
-import { authService } from "./service";
+import { diplomacyService } from "./service";
 
 export const store = configureStore({
   reducer,
-  middleware: (gdm) => [...gdm().concat(authService.middleware)],
+  middleware: (gdm) => [...gdm().concat(diplomacyService.middleware)],
 });
 
 setupListeners(store.dispatch);
